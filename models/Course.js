@@ -58,8 +58,6 @@ CourseShema.statics.getAverageCost = async function(bootcampId) {
     }
   ]);
 
-  console.log(obj)
-
   // Update bootcamp averageCost, find bootcamp by id
   try {
     await this.model('Bootcamp').findByIdAndUpdate(bootcampId, {
@@ -75,7 +73,7 @@ CourseShema.post('save', function(){
   this.constructor.getAverageCost(this.bootcamp);
 });
 
-// Call getAverageCost after save
+// Call getAverageCost after delete
 CourseShema.pre('remove', function(){
   this.constructor.getAverageCost(this.bootcamp);
 });
